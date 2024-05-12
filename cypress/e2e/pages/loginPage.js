@@ -44,4 +44,10 @@ export class LoginPage {
   checkLoginLogo (status) {
     cy.get('.login_logo').should(status);
   }
+
+  loginWithValidCredentials(){
+    this.typeStandardUser();
+    this.typeSecretSaucePassword();
+    this.clickLoginButton();
+  }
 }

@@ -35,6 +35,11 @@ Given ("I check the status for the login logo is {string}", (status) => {
   loginPage.checkLoginLogo(status);
 });
 
+Given ("I login with valid credentials for the standar_user", () => {
+  loginPage.loginWithValidCredentials();
+});
+
+
 
 
 
