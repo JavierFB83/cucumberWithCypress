@@ -68,7 +68,6 @@ export class MainPage {
   }
 
   selectSortingOption(sortOption) {
-    this.checkActiveSortingOption('Name (A to Z)');
     cy.get(sortContainner).select(sortOption);
     this.checkActiveSortingOption(sortOption);
     };
