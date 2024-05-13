@@ -32,3 +32,7 @@ Given("I check that the element with data test {string} should have the value {s
   commonPage.checkElementValueByDataTest(elementDataTest, value);
 })
 
+Given ("I visit my url", () => {
+  commonPage.visitBaseURl()
+})
+

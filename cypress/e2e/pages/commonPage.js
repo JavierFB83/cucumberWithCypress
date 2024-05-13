@@ -6,6 +6,10 @@ export class CommonPage {
     visitLink(url) {
       cy.visit(url);
     }
+
+    visitBaseURl() {
+      cy.visit(Cypress.config('baseUrl'));
+    }
     
     checkBodyText(status, text) {
       cy.get('body').should(status, text);
