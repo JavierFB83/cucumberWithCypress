@@ -7,7 +7,7 @@ export class CommonPage {
       cy.visit(url);
     }
 
-    visitBaseURl() {
+    visitBaseUrl() {
       cy.visit(Cypress.config('baseUrl'));
     }
     
@@ -15,9 +15,18 @@ export class CommonPage {
       cy.get('body').should(status, text);
     }
 
+    clickButtonIfExist(button) {
+      let buttonByDataTest = `[data-test="${button}"]`
+      cy.get('body').then((body) => {
+        if (body.find("buttonByDataTest")) {
+          cy.get(buttonByDataTest).click();
+        }
+      });
+    } 
+
     /*
 Aqui he dejado 2 funciones sin parametrizar (checkUrlValue y checkUrlNotValue)
-que comrpueban si una url contiene un texto o no, esto se podría parametrizar
+que comprueban si una url contiene un texto o no, esto se podría parametrizar
 pero así tambien estaría bien
 */
     checkUrlValue(urlValue) {

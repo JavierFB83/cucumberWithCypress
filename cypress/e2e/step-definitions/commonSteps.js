@@ -33,6 +33,9 @@ Given("I check that the element with data test {string} should have the value {s
 })
 
 Given ("I visit my url", () => {
-  commonPage.visitBaseURl()
+  commonPage.visitBaseUrl()
 })
 
+Given ("If the button {string} exist i click on it", (button) => {
+commonPage.clickButtonIfExist(button)
+})

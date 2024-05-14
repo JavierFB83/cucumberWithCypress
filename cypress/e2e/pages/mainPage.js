@@ -1,5 +1,4 @@
 ///Locators on Main Page
-
 const shopingCartButton = '[data-test="shopping-cart-link"]';
 const productCard = '[data-test="inventory-item"]';
 const image = '.inventory_item_img';
@@ -71,5 +70,6 @@ export class MainPage {
     cy.get(sortContainner).select(sortOption);
     this.checkActiveSortingOption(sortOption);
     };
-    
+
+ 
 }

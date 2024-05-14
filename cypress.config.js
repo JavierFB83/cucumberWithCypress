@@ -5,6 +5,7 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
+    failOnStatusCode: false,
     baseUrl: "https://www.saucedemo.com/",
     chromeWebSecurity: false,
     specPattern: '**/*.feature',

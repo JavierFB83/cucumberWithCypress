@@ -1,3 +1,4 @@
+@smoke
 Feature: Main test good practices
 
   Background: Visit and login with valid credencials
@@ -26,3 +27,4 @@ Feature: Main test good practices
       When I select the option "Price (high to low)" from the sorting dropdown
       And I check that the first product of the list contain "Sauce Labs Fleece Jacket"
       And I check that the first product of the list contain "49.99"
+      And I check that the first product of the list contain "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office."
