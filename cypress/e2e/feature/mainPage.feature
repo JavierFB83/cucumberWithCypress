@@ -1,4 +1,4 @@
-@smoke
+@regression @mainPage
 Feature: Main test good practices
 
   Background: Visit and login with valid credencials
@@ -6,6 +6,7 @@ Feature: Main test good practices
     When I login with valid credentials for the standar_user
     Then I check that the page should "contain" the text "Products"
 
+    @smoke
     Scenario: Verify Main page content
       Given I check that the element with data test "shopping-cart-link" should have the status "be.visible"
       When I check that the element with data test "inventory-list" should have the status "be.visible"

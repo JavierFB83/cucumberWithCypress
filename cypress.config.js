@@ -4,6 +4,7 @@ const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
 const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
+  projectId: 'ncsghx',
   e2e: {
     failOnStatusCode: false,
     baseUrl: "https://www.saucedemo.com/",

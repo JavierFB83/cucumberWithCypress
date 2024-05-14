@@ -1,10 +1,11 @@
 # Buenas prácticas para casos de prueba
-
+@regression @betterLogin
 Feature: Login test good practices
 
   Background: visit the login sauce demo page
       Given I visit "https://www.saucedemo.com/"
 
+    @smoke
     Scenario: Login with valid credentials
       Given I type on the credential input "username" the text value "standard_user"
       When I type on the credential input "password" the text value "secret_sauce"
@@ -24,6 +25,7 @@ Feature: Login test good practices
       And I check that the page should "contain" the text "Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy"   
       Then I check that the url value contain the text "inventory.html"
 
+    @smoke
     Scenario: Login with wrong username credential
       Given I type on the credential input "username" the text value "user not exist"
       When I type on the credential input "password" the text value "secret_sauce"
