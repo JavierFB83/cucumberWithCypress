@@ -1,3 +1,5 @@
+import { CommonPage } from "./commonPage";
+
 ///Locators on Main Page
 const shopingCartButton = '[data-test="shopping-cart-link"]';
 const productCard = '[data-test="inventory-item"]';
@@ -12,7 +14,7 @@ const linkedin = '[data-test="social-linkedin"]';
 const facebook = '[data-test="social-facebook"]';
 const twitter = '[data-test="social-twitter"]';
 
-export class MainPage {
+export class MainPage extends CommonPage{
 
   clickOnShoppigCart() {
     cy.get(shopingCartButton).should('have.class', 'shopping_cart_link').click();

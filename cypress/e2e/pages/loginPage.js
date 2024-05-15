@@ -1,4 +1,6 @@
-export class LoginPage {
+import { CommonPage } from "./commonPage";
+
+export class LoginPage extends CommonPage{
 
   // Function non parameterized
   typeStandardUser() {
