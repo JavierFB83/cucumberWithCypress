@@ -7,6 +7,7 @@ Scenario: Login Standard user and valid password
   And I type secret_sauce on the password credential input
   Then I click on the login button
 
+@smoke
 Scenario: Login Locked Out User and valid password
   Given I visit "https://www.saucedemo.com/"
   When I type Locked_Out_User on the Username credential input

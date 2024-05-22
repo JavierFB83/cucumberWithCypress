@@ -10,6 +10,10 @@ export class CommonPage {
     visitBaseUrl() {
       cy.visit(Cypress.config('baseUrl'));
     }
+
+    visitSauceDemo() {
+      cy.visit("https://www.saucedemo.com/");
+    }
     
     checkBodyText(status, text) {
       cy.get('body').should(status, text);
@@ -47,7 +51,7 @@ pero así tambien estaría bien
 
     checkElementValueByDataTest (elementName, value) {
       cy.get(`[data-test="${elementName}"]`).should('have.value', value);
-    }
+    }  
   }
   
   

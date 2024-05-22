@@ -36,6 +36,10 @@ Given ("I visit my url", () => {
   commonPage.visitBaseUrl()
 })
 
+Given ("I visit the saucedemo web page", () => {
+  commonPage.visitSauceDemo()
+})
+
 Given ("If the button {string} exist i click on it", (button) => {
 commonPage.clickButtonIfExist(button)
 })

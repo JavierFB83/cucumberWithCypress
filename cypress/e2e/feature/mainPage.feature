@@ -2,7 +2,7 @@
 Feature: Main test good practices
 
   Background: Visit and login with valid credencials
-    Given I visit my url
+    Given I visit the saucedemo web page
     When I login with valid credentials for the standar_user
     Then I check that the page should "contain" the text "Products"
 
