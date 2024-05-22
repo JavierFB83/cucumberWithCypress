@@ -7,9 +7,9 @@ module.exports = defineConfig({
   projectId: 'ncsghx',
   e2e: {
     failOnStatusCode: false,
-    baseUrl: "https://www.saucedemo.com/",
+   // baseUrl: 'https://jsonplaceholder.typicode.com',
     chromeWebSecurity: false,
-    specPattern: '**/*.feature',
+    specPattern: ['**/*.feature', '**/apiTests/*/*.js'],
     defaultCommandTimeout: 10000,
     numTestsKeptInMemory: 2,
     async setupNodeEvents(on, config) {
