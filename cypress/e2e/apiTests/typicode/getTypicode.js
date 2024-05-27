@@ -47,9 +47,9 @@ describe('Use GET method on typicode', () => {
   });
 
   it('find the value for userID on an element from the array on the endpoint "/posts"', () => {
-    cy.request('https://jsonplaceholder.typicode.com/posts').should((response) => {
+    cy.request('https://jsonplaceholder.typicode.com/posts').then((response) => {
       expect(response.status).to.eq(200)
-      const userIDValue = response.body.find(userIDValue => userIDValue.id === 43)
+      const userIDValue = response.body.find((userIDValue) => userIDValue.id === 43)
       expect(userIDValue).to.have.property('body', 'similique fugit est\nillum et dolorum harum et voluptate eaque quidem\nexercitationem quos nam commodi possimus cum odio nihil nulla\ndolorum exercitationem magnam ex et a et distinctio debitis');
     })
   });
@@ -83,7 +83,7 @@ describe('Use GET method on typicode', () => {
     })
   });
 
-  it.only('validate number of array for the endpoint ', () => {
+  it('validate number of array for the endpoint ', () => {
   cy.request("https://jsonplaceholder.typicode.com/posts/1/comments").its('body').should('have.length', 5)    
   });
 
@@ -91,11 +91,12 @@ describe('Use GET method on typicode', () => {
     cy.request('https://jsonplaceholder.typicode.com/posts/1/comments')
       .should((response) => {
         expect(response.status).to.eq(200);
-        expect(response.body.id(post => post.id === 4)).to.have.property('body', 'similique fugit est\nillum et dolorum harum et voluptate eaque quidem\nexercitationem quos nam commodi possimus cum odio nihil nulla\ndolorum exercitationem magnam ex et a et distinctio debitis');
+        let checkEndPoint = response.body.find((checkEndPoint) => checkEndPoint.id === 4)
+        expect(checkEndPoint).to.have.property('body', 'non et atque\noccaecati deserunt quas accusantium unde odit nobis qui voluptatem\nquia voluptas consequuntur itaque dolor\net qui rerum deleniti ut occaecati');
       });
   });
 
-  it.only('Validate endpoint content array', () => {
+  it('Validate endpoint content array', () => {
     cy.request('https://jsonplaceholder.typicode.com/posts/1/comments').should((response) => {
       expect(response.body).to.have.length(5);
       expect(response.status).to.eq(200);
@@ -106,4 +107,19 @@ describe('Use GET method on typicode', () => {
     });
   });
 
+
+  it('extract all information from the endpoint "/pokemon/{id or name}"', () => {
+    const pokemonNameOrID = "pikachu"
+    cy.request(`https://pokeapi.co/api/v2/pokemon/${pokemonNameOrID}`).should((response) => {
+      expect(response.status).to.eq(200);
+      const pokemonInfo = response.body;
+      expect(pokemonInfo.id).to.eq(25);
+      expect(pokemonInfo).to.have.property('name',pokemonNameOrID);
+      expect(pokemonInfo).to.have.property('abilities');
+      expect(pokemonInfo.abilities).to.be.an('array');
+      expect(pokemonInfo.stats).to.be.an('array');
+      expect(pokemonInfo).to.have.property('types');
+      expect(pokemonInfo.types).to.be.an('array', 4);
+        })
+      });
 })
