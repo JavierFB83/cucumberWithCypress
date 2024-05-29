@@ -52,6 +52,28 @@ pero así tambien estaría bien
     checkElementValueByDataTest (elementName, value) {
       cy.get(`[data-test="${elementName}"]`).should('have.value', value);
     }  
+
+    interceptApiCallAddAlias (apiCall, alias) {
+      cy.intercept(apiCall).as(alias);
+    }
+
+    waitApiCallByAlias(time, aliasApiCall) {
+      cy.wait('@'+ aliasApiCall, {timeout: time});
+    }
+
+    clickButtonByNameWaitCookies (buttonName, apiCall) {
+      cy.intercept(apiCall).as('cookiesLoad');
+      cy.wait('@cookiesLoad', {timeout: 10000});
+      cy.contains(buttonName).click();
+    }
+
+    clickButtonByName (buttonName, apiCall) {
+      cy.contains(buttonName).click();
+    }
+
+    waitXSeconds (seconds) {
+      cy.wait(seconds);
+    }
   }
   
   

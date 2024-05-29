@@ -107,7 +107,6 @@ describe('Use GET method on typicode', () => {
     });
   });
 
-
   it('extract all information from the endpoint "/pokemon/{id or name}"', () => {
     const pokemonNameOrID = "pikachu"
     cy.request(`https://pokeapi.co/api/v2/pokemon/${pokemonNameOrID}`).should((response) => {
@@ -122,4 +121,5 @@ describe('Use GET method on typicode', () => {
       expect(pokemonInfo.types).to.be.an('array', 4);
         })
       });
+
 })

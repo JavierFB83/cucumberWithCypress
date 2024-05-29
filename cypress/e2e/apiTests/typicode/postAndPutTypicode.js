@@ -113,9 +113,7 @@ describe('Testing POST and PUT on Typicode', () => {
     cy.request('DELETE', 'https://jsonplaceholder.typicode.com/posts/1')
    });
 
-   it('Add the body in a const and check all the response body with to.deep.include', () => {
-    cy.request('https://api.restful-api.dev/objects')
-   })
+
 
    it('Add the body in a const and check all the response body with to.deep.include', () => {
     const postData = {
@@ -236,4 +234,108 @@ describe('Testing POST and PUT on Typicode', () => {
     })
    });
   });
+
+  it('Check response for GET /objects/1', () => {
+    const expectedBody = {
+      id: '1',
+      name: 'Google Pixel 6 Pro',
+      data: {
+        color: 'Cloudy White',
+        capacity: '128 GB',
+      },
+    };
+    cy.request('GET', 'https://api.restful-api.dev/objects/1').then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body).to.deep.eq(expectedBody);
+      cy.log(response);
+    });
+  });
+
+  it('check response after POST for /objects/2', () => {
+    const newData =
+      {
+        "name": "Mayenco",
+        "data": {
+          color: 'Cloudy White',
+          capacity: '128 GB',
+        }
+      }
+      const putNewData =
+      {
+        "name": "Mayen",
+        "data": {
+          color: 'Cloudy heavy',
+          capacity: '256 GB',
+        }
+      }
+    cy.request('POST', 'https://api.restful-api.dev/objects', newData).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body).to.deep.include(newData);
+      const newId = response.body.id;
+      cy.log(newId);
+    cy.request('PUT', 'https://api.restful-api.dev/objects/' + newId, putNewData).then((response) =>{
+      expect(response.status).to.eq(200);
+      expect(response.body).to.deep.include(putNewData)
+    })
+   })
+  });
+
+  let id
+    it('POST', () => {
+        const bodyCreate = {
+            name: "Prueba",
+            data: null
+        };
+        cy.request('POST', 'https://api.restful-api.dev/objects', bodyCreate)
+        .then((response) => {
+            const res = response.body
+            id = res.id
+            expect(response.status).to.eq(200);
+            expect(res).to.deep.include(bodyCreate);
+            cy.log(res.createdAt);
+            cy.log(res.id);
+        })
+    });
+
+    it('PATCH', () => {
+        const bodyUpdate = {
+            data: {
+                year: 2019,
+            }
+        }
+        cy.request('PATCH',  `https://api.restful-api.dev/objects/${id}`, bodyUpdate)
+        .then((response) => {
+            const res = response.body
+            expect(response.status).to.eq(200);
+            expect(res).to.deep.include(bodyUpdate);
+            expect(res.id).to.deep.eq(id);
+            expect(res.updatedAt).to.be.a('string');
+        })
+    })
+
+    it('GET new product created', () => {
+        const expectedBody = {
+            id: id,
+            name: "Prueba",
+            data: {
+                year: 2019,
+            }
+        }
+        cy.request('GET', `https://api.restful-api.dev/objects/${id}`)
+        .then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body).to.deep.eq(expectedBody);
+        })
+    });
+
+    it('DELETE new product created', () => {
+        const expectedBody = {
+            message: `Object with id = ${id} has been deleted.`
+        }
+        cy.request('DELETE', `https://api.restful-api.dev/objects/${id}`)
+        .then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body).to.deep.eq(expectedBody);
+        })
+    });
 });

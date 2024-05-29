@@ -43,3 +43,25 @@ Given ("I visit the saucedemo web page", () => {
 Given ("If the button {string} exist i click on it", (button) => {
 commonPage.clickButtonIfExist(button)
 })
+
+Then ('I click on the button named {string} and wait for api call {string}', (buttonName, apiCall) => {
+  commonPage.clickButtonByNameWaitCookies(buttonName, apiCall)
+})
+
+Then ('I click on the button named {string}', (buttonName) => {
+  commonPage.clickButtonByName(buttonName)
+})
+
+Then ('I wait {int} seconds', (seconds) => {
+  commonPage.waitXSeconds(seconds)
+})
+
+Then ('I intercept the api call {string} with the alias {string}', (apiCall, aliasApiCall) => {
+  commonPage.interceptApiCallAddAlias(apiCall, aliasApiCall)
+})
+
+Then ('I wait {int} miliseconds for the api call with the alias {string}', (time, aliasApiCall) => {
+  commonPage.waitApiCallByAlias(time, aliasApiCall)
+})
+
+
