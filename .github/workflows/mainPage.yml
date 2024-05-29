@@ -1,0 +1,24 @@
+name: Cypress Main Page Tests
+
+on:
+  workflow_dispatch:  # Permite ejecución manual
+
+jobs:
+  cypress-main-page:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.12.2'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Cypress main page tests
+      run: npm run cy:mainPage
+      env:
+        CI: true
