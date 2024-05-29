@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:tags": "cypress run --record --env tags=@smoke --key d954484a-7533-411d-bc59-878e39efdf1c",
-    "cy:smoke": "cypress run --env tags=@smoke",
-    "cy:regression": "cypress run --env tags=@regression",
-    "cy:betterLogin": "cypress run --env tags=@betterLogin",
-    "cy:loginTest": "cypress run --env tags=@loginTest",
-    "cy:mainPage": "cypress run --env tags=@mainPage"
+    "cy:smoke": "cypress run --env tags=@smoke --spec '**/*.feature'",
+    "cy:regression": "cypress run --env tags=@regression --spec '**/*.feature'",
+    "cy:betterLogin": "cypress run --env tags=@betterLogin --spec '**/*.feature'",
+    "cy:loginTest": "cypress run --env tags=@loginTest --spec '**/*.feature'",
+    "cy:mainPage": "cypress run --env tags=@mainPage --spec '**/*.feature'",
+    "cy:apiTest": "cypress run --env --spec '**/*.js'"
   },
   "keywords": [],
   "author": "",
