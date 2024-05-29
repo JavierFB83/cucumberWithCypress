@@ -11,7 +11,7 @@
     "cy:betterLogin": "cypress run --env tags=@betterLogin --spec '**/*.feature'",
     "cy:loginTest": "cypress run --env tags=@loginTest --spec '**/*.feature'",
     "cy:mainPage": "cypress run --env tags=@mainPage --spec '**/*.feature'",
-    "cy:apiTest": "cypress run --env --spec '**/*.js'"
+    "cy:apiTest": "cypress run --spec '**/*.js'"
   },
   "keywords": [],
   "author": "",
