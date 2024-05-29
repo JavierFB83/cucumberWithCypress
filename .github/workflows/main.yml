@@ -18,6 +18,6 @@ jobs:
       run: npm install
 
     - name: Run Cypress tests
-      run: npx cypress run
+      run: npm run cy:smoke
       env:
         CI: true
