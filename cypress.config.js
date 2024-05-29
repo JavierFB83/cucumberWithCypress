@@ -10,7 +10,7 @@ module.exports = defineConfig({
    // baseUrl: 'https://jsonplaceholder.typicode.com',
     chromeWebSecurity: false,
     specPattern: ['**/*.feature', '**/apiTests/*/*.js'],
-    //defaultCommandTimeout: 10000,
+    defaultCommandTimeout: 10000,
     numTestsKeptInMemory: 10,
     env: {
       snapshotOnly: true,
