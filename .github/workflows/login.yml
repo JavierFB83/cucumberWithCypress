@@ -1,0 +1,24 @@
+name: Cypress Login Test
+
+on:
+  workflow_dispatch:  # Permite ejecución manual
+
+jobs:
+  cypress-login-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.12.2'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Cypress login test
+      run: npm run cy:loginTest
+      env:
+        CI: true
