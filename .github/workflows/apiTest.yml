@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run Cypress login test
+    - name: Run Cypress api test
       run: npm run cy:apiTest
       env:
         CI: true
