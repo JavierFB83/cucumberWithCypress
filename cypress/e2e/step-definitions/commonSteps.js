@@ -52,7 +52,7 @@ Then ('I click on the button named {string}', (buttonName) => {
   commonPage.clickButtonByName(buttonName)
 })
 
-Then ('I wait {int} seconds', (seconds) => {
+Then ('I wait {int} miliseconds', (seconds) => {
   commonPage.waitXSeconds(seconds)
 })
 
