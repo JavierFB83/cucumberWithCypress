@@ -20,5 +20,14 @@ jobs:
 
     - name: Run Cypress login test
       run: npm run cy:loginTest
+
+    - name: Upload report artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: mochawesome-report
+        path: cypress/reports/html/index.html
+        retention-days: 30
+        if-no-files-found: warn
+        
       env:
         CI: true
