@@ -1,0 +1,41 @@
+name: Cypress Pipeline fail Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cypress-pipeline-fail-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.12.2'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Cypress pipeline fail tests
+      run: npm run cy:pipelineFails
+
+    - name: Upload report artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: mochawesome-report
+        path: cypress/reports/html/index.html
+        retention-days: 30
+        if-no-files-found: warn
+ 
+    - name: Send notification to Slack
+      if: failure() # Envía la notificación solo si el trabajo falla
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.PIPELINESLACKCONECTION }}
+      run: |
+        payload="payload={\"text\":\":x: Build failed on branch ${GITHUB_REF} in repository ${GITHUB_REPOSITORY}\"}"
+        curl -X POST --data-urlencode "$payload" $SLACK_WEBHOOK_URL
+
+        env:
+        CI: true
