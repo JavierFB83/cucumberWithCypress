@@ -22,5 +22,13 @@ jobs:
 
     - name: Run Cypress smoke tests
       run: npm run cy:smoke
+      
+    - name: Upload report artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: mochawesome-report
+        path: cypress/reports/mochawesome.html
+        retention-days: 30  # Cambia este valor según tus necesidades
+        
       env:
         CI: true
