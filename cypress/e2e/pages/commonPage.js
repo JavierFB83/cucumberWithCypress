@@ -63,7 +63,7 @@ pero así tambien estaría bien
 
     clickButtonByNameWaitCookies (buttonName, apiCall) {
       cy.intercept(apiCall).as('cookiesLoad');
-      cy.wait('@cookiesLoad', {timeout: 20000});
+      cy.wait('@cookiesLoad', {timeout: 1});
       cy.contains(buttonName).click();
     }
 
