@@ -30,7 +30,7 @@ jobs:
         if-no-files-found: warn
  
     - name: Send notification to Slack
-      if: failure() # Envía la notificación solo si el trabajo falla
+      if: failure()
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.PIPELINESLACKCONECTION }}
       run: |
