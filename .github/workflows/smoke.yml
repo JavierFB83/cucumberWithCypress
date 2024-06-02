@@ -27,8 +27,9 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: mochawesome-report
-        path: cypress/reports/mochawesome.html
-        retention-days: 30  # Cambia este valor según tus necesidades
+        path: cypress/reports/html/index.html
+        retention-days: 30
+        if-no-files-found: warn
         
       env:
         CI: true
