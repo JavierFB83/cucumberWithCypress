@@ -2,8 +2,8 @@ name: Cypress Regression Tests
 
 on:
   schedule:
-    - cron: "0 22 * * *"  # Ejecuta diariamente a las 22:00 UTC
-  workflow_dispatch:  # Permite ejecución manual
+    - cron: "0 22 * * *"
+  workflow_dispatch:
 
 jobs:
   cypress-regression:
@@ -30,6 +30,6 @@ jobs:
         path: cypress/reports/html/index.html
         retention-days: 30
         if-no-files-found: warn
-        
+
       env:
         CI: true

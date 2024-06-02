@@ -1,7 +1,7 @@
 name: Cypress Better Login Tests
 
 on:
-  workflow_dispatch:  # Permite ejecución manual
+  workflow_dispatch:
 
 jobs:
   cypress-better-login:

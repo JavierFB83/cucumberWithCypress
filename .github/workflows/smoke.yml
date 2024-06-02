@@ -3,7 +3,7 @@ name: Cypress Smoke Tests
 on:
   push:
   pull_request:
-  workflow_dispatch:  # Permite ejecución manual
+  workflow_dispatch:
 
 jobs:
   cypress-smoke:

@@ -1,7 +1,7 @@
 name: Cypress API Test
 
 on:
-  workflow_dispatch:  # Permite ejecución manual
+  workflow_dispatch:
 
 jobs:
   cypress-login-test:
@@ -28,6 +28,6 @@ jobs:
         path: cypress/reports/html/index.html
         retention-days: 30
         if-no-files-found: warn
-        
+
       env:
         CI: true

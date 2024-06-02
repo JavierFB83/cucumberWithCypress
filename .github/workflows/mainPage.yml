@@ -1,7 +1,7 @@
 name: Cypress Main Page Tests
 
 on:
-  workflow_dispatch:  # Permite ejecución manual
+  workflow_dispatch:
 
 jobs:
   cypress-main-page:
