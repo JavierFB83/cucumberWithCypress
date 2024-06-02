@@ -34,8 +34,8 @@ jobs:
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.PIPELINESLACKCONECTION }}
       run: |
-        payload="payload={\"text\":\":x: Build failed on branch ${GITHUB_REF} in repository ${GITHUB_REPOSITORY}\"}"
+        payload="payload={\"text\":\":x: Pipeline '${{ github.workflow }}' failed on branch '${{ github.ref }}' in repository '${{ github.repository }}'\"}"
         curl -X POST --data-urlencode "$payload" $SLACK_WEBHOOK_URL
 
-        env:
-        CI: true
+    env:
+      CI: true
