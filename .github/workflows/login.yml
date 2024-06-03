@@ -22,6 +22,7 @@ jobs:
       run: npm run cy:loginTest
 
     - name: Upload report artifact
+      if: always()
       uses: actions/upload-artifact@v2
       with:
         name: mochawesome-report
