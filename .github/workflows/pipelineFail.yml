@@ -22,6 +22,7 @@ jobs:
       run: npm run cy:pipelineFails
 
     - name: Upload report artifact
+      if: failure()
       uses: actions/upload-artifact@v2
       with:
         name: mochawesome-report
