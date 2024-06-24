@@ -60,7 +60,7 @@ pero así tambien estaría bien
 
     clickButtonByNameWaitCookies (buttonName, apiCall) {
       cy.intercept(apiCall).as('cookiesLoad');
-      cy.wait('@cookiesLoad', {timeout: 10000});
+      cy.wait('@cookiesLoad', {timeout: 10});
       cy.contains(buttonName).click();
     }
 
@@ -75,7 +75,7 @@ pero así tambien estaría bien
     /// Función para testear accesibilidad
     testAccesibilityInScreen () {
       cy.injectAxe();
-      cy.checkA11y()
+      cy.checkA11y();
     }
 
     testAccesibilityOnElement (elementLocator) {
