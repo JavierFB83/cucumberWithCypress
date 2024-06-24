@@ -65,4 +65,13 @@ Then ('I wait {int} miliseconds for the api call with the alias {string}', (time
   commonPage.waitApiCallByAlias(time, aliasApiCall)
 })
 
+// Step para test de accesibilidad
+Then ('I test the accesibility in all the screen', () => {
+  commonPage.testAccesibilityInScreen()
+})
+
+Then ('I test the accesibility on the element with locator {string}', (elementLocator) => {
+  commonPage.testAccesibilityOnElement(elementLocator)
+})
+
 

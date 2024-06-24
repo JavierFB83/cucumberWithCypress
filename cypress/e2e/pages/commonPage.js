@@ -1,3 +1,4 @@
+import 'cypress-axe';
 export class CommonPage {
     /*
     En los archivos de "Pages" Creamos nuestras funciones para que sean usadas en los steps-definitions
@@ -67,12 +68,23 @@ pero así tambien estaría bien
       cy.contains(buttonName).click();
     }
 
-    clickButtonByName (buttonName, apiCall) {
+    clickButtonByName (buttonName) {
       cy.contains(buttonName).click();
     }
 
     waitXSeconds (seconds) {
       cy.wait(seconds);
+    }
+
+    /// Función para testear accesibilidad
+    testAccesibilityInScreen () {
+      cy.injectAxe();
+      cy.checkA11y()
+    }
+
+    testAccesibilityOnElement (elementLocator) {
+      cy.injectAxe();
+      cy.checkA11y(elementLocator)
     }
   }
   
