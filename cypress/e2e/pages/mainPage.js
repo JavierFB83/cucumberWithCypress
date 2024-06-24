@@ -56,8 +56,16 @@ export class MainPage extends CommonPage{
     return cy.get(productList).children().first();
   }
 
+  getLastProductFromProductList() {
+    return cy.get(productList).children().last();
+  }
+
   checkFirstProductContent(productContent) {
     this.getFirstProductFromProductList().should('contain', productContent);
+  }
+
+  checkLastProductContent(productContent) {
+    this.getLastProductFromProductList().should('contain', productContent);
   }
 
   getActiveSortingOption() {

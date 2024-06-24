@@ -49,6 +49,10 @@ Given("I check that the first product of the list contain {string}", (productCon
   mainPage.checkFirstProductContent(productContent);
 });
 
+Given("I check that the last product of the list contain {string}", (productContent) => {
+  mainPage.checkLastProductContent(productContent);
+});
+
 Given("I select the option {string} from the sorting dropdown", (productContent) => {
   mainPage.selectSortingOption(productContent);
 });
