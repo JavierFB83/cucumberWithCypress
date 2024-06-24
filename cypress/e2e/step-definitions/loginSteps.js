@@ -40,6 +40,10 @@ Given ("I login with valid credentials for the standar_user", () => {
   loginPage.loginWithValidCredentials();
 });
 
+Given ("I login better with valid credentials for the standar_user", () => {
+  loginPage.betterLoginWithValidCredentials();
+});
+
 
 
 

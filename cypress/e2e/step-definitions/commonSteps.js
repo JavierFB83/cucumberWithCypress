@@ -13,7 +13,7 @@ When("I check that the page should {string} the text {string}", (status, text) =
   // Status accept the values: contain , not.contain
 })
 
-Then("I check that the url value contain the text {string}", (urlValue) => {
+Given("I check that the url value contain the text {string}", (urlValue) => {
   commonPage.checkUrlValue(urlValue);
 })
 
@@ -21,11 +21,21 @@ Then("I check that the url value not contain the text {string}", (urlValue) => {
   commonPage.checkUrlNotValue(urlValue);
 })
 
+When("I check that the url value {string} is {string}", (urlValue, status) => {
+  commonPage.checkUrlValueStatus(status, urlValue)
+  // status value must be : include or not include
+})
+
+When("I check that the status is {string} with the  url value {string}", (status, urlValue) => {
+  commonPage.checkUrlValueStatus(status, urlValue)
+  // status value must be : include or not include
+})
+
 Given("I check that the element with data test {string} should have the status {string}", (elementDataTest, status) => {
   commonPage.checkElementStateByDataTest(elementDataTest, status);
 })
 
-Given("I check that the element with class {string} should have the content {string}", (className, content) => {
+When("I check that the element with class {string} should have the content {string}", (className, content) => {
   commonPage.checkContentByClass(className, content);
 })
 

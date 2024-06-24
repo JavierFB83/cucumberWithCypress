@@ -52,4 +52,10 @@ export class LoginPage extends CommonPage{
     this.typeSecretSaucePassword();
     this.clickLoginButton();
   }
+
+  betterLoginWithValidCredentials(){
+    this.typeOnInputByDataTest('username', 'standard_user');
+    this.typeOnInputByDataTest('password', 'secret_sauce');
+    this.clickLoginButton();
+  }
 }
