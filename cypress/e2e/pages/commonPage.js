@@ -1,4 +1,3 @@
-import 'cypress-axe';
 export class CommonPage {
     /*
     En los archivos de "Pages" Creamos nuestras funciones para que sean usadas en los steps-definitions
@@ -60,7 +59,7 @@ pero así tambien estaría bien
 
     clickButtonByNameWaitCookies (buttonName, apiCall) {
       cy.intercept(apiCall).as('cookiesLoad');
-      cy.wait('@cookiesLoad', {timeout: 10});
+      cy.wait('@cookiesLoad', {timeout: 1000});
       cy.contains(buttonName).click();
     }
 

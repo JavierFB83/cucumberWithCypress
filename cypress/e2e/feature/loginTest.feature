@@ -22,14 +22,14 @@ Feature: Login succesfull
 
   Scenario: Login with parameterized User and valid password
     Given I visit "https://www.saucedemo.com/"
-    When I type "Galicia" on the Username credential input
+    When I type "Javier" on the Username credential input
     And I type "1234" on the password credential input
     Then I click on the login button
 
 
   Scenario: Login with parameterized inputs and text values
     Given I visit "https://www.saucedemo.com/"
-    When I type on the credential input "username" the text value "Daniel"
+    When I type on the credential input "username" the text value "Javier"
     When I type on the credential input "password" the text value "1234"
     Then I click on the login button
 

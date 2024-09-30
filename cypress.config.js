@@ -15,29 +15,32 @@ module.exports = defineConfig({
   },
   projectId: 'ncsghx',
   e2e: {
-    setupNodeEvents(on, config) {
+    setupNodeEvents: async (on, config) => {
+      // "cypress-on-fix" is required because "cypress-mochawesome-reporter" and "cypress-cucumber-preprocessor" use the same hooks
+      on = cypressOnFix(on);
+      
+      // Mochawesome reporter plugin
       require('cypress-mochawesome-reporter/plugin')(on);
+      
+      // Cucumber plugin
+      await addCucumberPreprocessorPlugin(on, config);
+      
+      // Esbuild preprocessor plugin
+      on(
+        'file:preprocessor',
+        createBundler({ plugins: [createEsbuildPlugin(config)] })
+      );
+
+      return config;
     },
     failOnStatusCode: false,
-   // baseUrl: 'https://jsonplaceholder.typicode.com',
     chromeWebSecurity: false,
     specPattern: ['**/*.feature', '**/apiTests/*/*.js'],
     defaultCommandTimeout: 10000,
     numTestsKeptInMemory: 10,
     env: {
       snapshotOnly: true,
-      requestMode: true
-    },
-    async setupNodeEvents(on, config) {
-       // "cypress-on-fix" is required because "cypress-mochawesome-reporter" and "cypress-cucumber-preprocessor" use the same hooks
-       on = cypressOnFix(on);
-       require('cypress-mochawesome-reporter/plugin')(on);
-      await addCucumberPreprocessorPlugin(on, config);
-      on(
-        'file:preprocessor',
-        createBundler({ plugins: [createEsbuildPlugin(config)] })
-      );
-      return config;
+      requestMode: true,
     },
   },
-})
+});

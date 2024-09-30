@@ -4,7 +4,7 @@ Feature: Uso de intercept, buenas prácticas
 
   Scenario: Uso de wait
     Given I visit "https://www.max.com/es/es"
-    And I wait 1 miliseconds
+    And I wait 1000 miliseconds
     Then I click on the button named "Aceptar todo"
 
   Scenario: Uso de intercept y wait al alias de la api call dentro de la misma funcion
@@ -14,7 +14,7 @@ Feature: Uso de intercept, buenas prácticas
   Scenario: Uso de intercept y wait al alias de la api call en pasos parametrizados
     Given I intercept the api call "**/ot_guard_logo.svg" with the alias "cookies"
     When I visit "https://www.max.com/es/es"
-    And I wait 1 miliseconds for the api call with the alias "cookies"
+    And I wait 1000 miliseconds for the api call with the alias "cookies"
     Then I click on the button named "Aceptar todo"
 
 
