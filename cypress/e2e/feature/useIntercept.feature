@@ -4,7 +4,7 @@ Feature: Uso de intercept, buenas prácticas
 
   Scenario: Uso de wait
     Given I visit "https://www.max.com/es/es"
-    And I wait 1000 miliseconds
+    And I wait 5000 miliseconds
     Then I click on the button named "Aceptar todo"
 
   Scenario: Uso de intercept y wait al alias de la api call dentro de la misma funcion

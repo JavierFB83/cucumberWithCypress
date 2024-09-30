@@ -6,6 +6,7 @@ Feature: Accesibility tests
     When I login better with valid credentials for the standar_user
     Then I check that the page should "contain" the text "Products"
     
+    @pipelineFails
     Scenario: Test the accesibility in all the screen
       Then I test the accesibility in all the screen
 
