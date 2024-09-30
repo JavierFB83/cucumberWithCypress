@@ -1,4 +1,3 @@
-@pipelineFails
 Feature: Uso de intercept, buenas prácticas
 
 
