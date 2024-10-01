@@ -58,4 +58,24 @@ export class LoginPage extends CommonPage{
     this.typeOnInputByDataTest('password', 'secret_sauce');
     this.clickLoginButton();
   }
+
+  openSession() {
+    cy.session('loginSession', () => {
+      this.visitSauceDemo(); // Visita la URL de inicio de sesión
+      this.typeOnInputByDataTest('username', 'standard_user');
+      this.typeOnInputByDataTest('password', 'secret_sauce');
+      this.clickLoginButton();
+      cy.url().should('eq', 'https://www.saucedemo.com/inventory.html'); // Verifica que se redirige a la página correcta
+    });
+  }
+  
+  navigateToMain() {
+    cy.visit('https://www.saucedemo.com/inventory.html', { failOnStatusCode: false });
+    cy.url().should('include', '/inventory.html');
+  }
+
+  loginKeepSession() {
+    this.openSession();
+    this.navigateToMain();
+  }
 }

@@ -44,6 +44,13 @@ Given ("I login better with valid credentials for the standar_user", () => {
   loginPage.betterLoginWithValidCredentials();
 });
 
+Given ("I login and keep the sesion for the standar_user", () => {
+  loginPage.loginKeepSession();
+});
+
+Given ("I navigate to the main page", () => {
+  loginPage.navigateToMain();
+});
 
 
 
