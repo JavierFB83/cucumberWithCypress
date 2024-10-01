@@ -63,6 +63,10 @@ Then ('I click on the button named {string}', (buttonName) => {
   commonPage.clickButtonByName(buttonName)
 })
 
+Then ('I click on the button named {string} with a timeout of {int} miliseconds', (buttonName, timeoutParameter) => {
+  commonPage.clickButtonByNameWithTimeout(buttonName, timeoutParameter)
+})
+
 Then ('I wait {int} miliseconds', (seconds) => {
   commonPage.waitXSeconds(seconds)
 })
@@ -71,7 +75,7 @@ Then ('I intercept the api call {string} with the alias {string}', (apiCall, ali
   commonPage.interceptApiCallAddAlias(apiCall, aliasApiCall)
 })
 
-Then ('I wait {int} miliseconds for the api call with the alias {string}', (time, aliasApiCall) => {
+Then ('I wait maximum of {int} miliseconds for the api call with the alias {string}', (time, aliasApiCall) => {
   commonPage.waitApiCallByAlias(time, aliasApiCall)
 })
 
