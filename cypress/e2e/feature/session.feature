@@ -2,6 +2,7 @@ Feature: Use cy.session
 
   Background: Login and keep session with the standar_user
       Given I login and keep the sesion for the standar_user
+      When I navigate to the main page
 
     Scenario: Uso de Gherkin
       Given I check that the element with data test "shopping-cart-link" should have the status "be.visible"

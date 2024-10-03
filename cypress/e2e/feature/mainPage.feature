@@ -1,4 +1,4 @@
-@regression @mainPage
+@regression @mainPage @products 
 Feature: Main test good practices
 
   Background: Visit and login with valid credencials

@@ -1,5 +1,5 @@
 describe('Use GET method on typicode', () => {
-
+  
   it('first visit and request', () => {
     cy.visit('https://jsonplaceholder.typicode.com')
     //si tenemos la base url declarada no hace falta hacer el visit
