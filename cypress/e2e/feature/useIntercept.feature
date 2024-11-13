@@ -1,4 +1,4 @@
-Feature: Uso de intercept, buenas prácticas
+Feature: Intercept good practices
 
 
   Scenario: Uso de wait
